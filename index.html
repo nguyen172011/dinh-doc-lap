@@ -18,10 +18,11 @@
   overflow: hidden;
 }
 
+/* Sidebar */
 .sidebar {
   position: fixed;
   top: 0;
-  right: -400px; /* mặc định ẩn */
+  right: -500px; /* mặc định đóng */
   width: 100%;
   max-width: 400px;
   height: 100%;
@@ -38,6 +39,30 @@
   right: 0; /* hiện sidebar */
 }
 
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #0b3d2e;
+  border-bottom: 2px solid #0b6b53;
+  padding-bottom: 10px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+}
+
+/* Nút toggle gắn vào rìa trái sidebar */
 .toggle-btn {
   position: absolute;
   top: 20px;
@@ -52,6 +77,7 @@
   font-weight: bold;
   box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
+
 
 /* Overlay xanh lá mờ */
 header::before {
@@ -88,7 +114,21 @@ header .muted { color: #fff; }
     <h1>Dinh Độc Lập (Hội trường Thống Nhất) - Dự án của lớp 9A6</h1>
     <p class="muted">Di tích lịch sử – văn hóa tại trung tâm TP. Hồ Chí Minh</p>
   </header>
-
+<div class="sidebar" id="sidebar">
+  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Danh sách thành viên</button>
+  <h2>Danh sách thành viên</h2>
+  <ul>
+    <li>Hoàng Thị Thanh Hằng</li>
+    <li>Nguyễn Hoàng Minh Anh</li>
+    <li>Nông Huyền Phương Nghi</li>
+    <li>Đào Nguyễn Quỳnh Chi</li>
+    <li>Trần Phạm Thanh Tùng</li>
+    <li>Mai Lê Tuấn Tú</li>
+    <li>Đặng Thảo An</li>
+    <li>Hồ Trần Xuân Mai</li>
+    <li>Kim Khôi Nguyên</li>
+  </ul>
+</div>
   <section>
     <p>Dinh Độc Lập là nơi ghi dấu những khoảnh khắc đổi thay của lịch sử Việt Nam. Từ kiến trúc hiện đại mang tinh thần Á Đông đến các không gian chức năng như phòng khánh tiết và khu hầm, nơi đây đưa bạn chạm vào ký ức của một thời.</p>
     <p>Nơi này được công nhận là Di tích lịch sử văn hóa quốc gia tại Quyết định số 77A/VHQĐ ngày 25/6/1976 của Bộ trưởng Bộ Văn hóa (Bộ Văn hóa, Thể thao và Du lịch ngày nay). Cựu Thủ tướng Chính phủ nước Cộng hòa Xã hội Chủ nghĩa Việt Nam là ông Nguyễn Tấn Dũng đã ký Quyết định số 1272/QĐ-TTg xếp hạng Di tích lịch sử Dinh Độc Lập là một trong 10 di tích quốc gia đặc biệt đầu tiên của Việt Nam vào ngày 12 tháng 8 năm 2009.</p>
@@ -142,22 +182,6 @@ header .muted { color: #fff; }
     <p>© Trang giới thiệu Dinh Độc Lập · <a href="https://dinhdoclap.gov.vn/" target="_blank" rel="noopener">dinhdoclap.gov.vn</a></p>
   </footer>
 
-  <div class="sidebar closed" id="sidebar">
-  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Danh sách thành viên</button>
-  <h2>Danh sách thành viên</h2>
-  <ul>
-    <li>Hoàng Thị Thanh Hằng</li>
-    <li>Nguyễn Hoàng Minh Anh</li>
-    <li>Nông Huyền Phương Nghi</li>
-    <li>Đào Nguyễn Quỳnh Chi</li>
-    <li>Trần Phạm Thanh Tùng</li>
-    <li>Mai Lê Tuấn Tú</li>
-    <li>Đặng Thảo An</li>
-    <li>Hồ Trần Xuân Mai</li>
-    <li>Kim Khôi Nguyên</li>
-  </ul>
-</div>
-
 </body>
 
 <script>
@@ -165,16 +189,15 @@ header .muted { color: #fff; }
     const sidebar = document.getElementById("sidebar");
     const btn = document.getElementById("toggleBtn");
 
-    if (sidebar.classList.contains("closed")) {
-      sidebar.classList.remove("closed");
+    if (sidebar.classList.contains("open")) {
+      sidebar.classList.remove("open");
+      btn.textContent = "Danh sách thành viên";
+    } else {
       sidebar.classList.add("open");
       btn.textContent = "Đóng";
-    } else {
-      sidebar.classList.remove("open");
-      sidebar.classList.add("closed");
-      btn.textContent = "Danh sách thành viên";
     }
   }
 </script>
 
 </html>
+
