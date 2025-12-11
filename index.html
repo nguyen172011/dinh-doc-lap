@@ -115,7 +115,7 @@ header .muted { color: #fff; }
     position: fixed;
     top: 20px;
     right: 20px;
-    background: #e74c3c; /* đỏ nổi bật để dễ thấy */
+    background: #e74c3c; /* đỏ nổi bật */
     color: #fff;
     border: none;
     padding: 12px 18px;
@@ -131,26 +131,27 @@ header .muted { color: #fff; }
   .sidebar {
     position: fixed;
     top: 0;
-    right: -600px; /* mặc định đóng */
+    right: 0;
     width: 320px;
-    height: 80%;
-    background: #f6f7f9; /* nền sáng giống theme */
+    height: 100%;
+    background: #f6f7f9;
     color: #222;
     box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-    transition: right 0.3s ease;
+    transition: transform 0.3s ease;
     padding: 24px;
     overflow-y: auto;
     z-index: 1000;
+    transform: translateX(100%); /* mặc định đóng */
   }
 
   .sidebar.open {
-    right: 0; /* hiện sidebar */
+    transform: translateX(0); /* hiện sidebar */
   }
 
   .sidebar h2 {
     margin-top: 0;
     font-size: 20px;
-    color: #0b3d2e; /* xanh lá đậm */
+    color: #0b3d2e;
     border-bottom: 2px solid #0b6b53;
     padding-bottom: 10px;
   }
@@ -206,5 +207,3 @@ header .muted { color: #fff; }
 </script>
 
 </html>
-
-
