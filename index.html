@@ -18,67 +18,6 @@
   overflow: hidden;
 }
 
-/* Sidebar */
-.sidebar {
-  position: fixed;
-  top: 0;
-  right: -500px; /* mặc định đóng */
-  width: 100%;
-  max-width: 400px;
-  height: 100%;
-  background: #f6f7f9;
-  color: #222;
-  box-shadow: -2px 0 8px rgba(0,0,0,0.15);
-  transition: right 0.3s ease;
-  padding: 24px;
-  overflow-y: auto;
-  z-index: 1000;
-}
-
-.sidebar.open {
-  right: 0; /* hiện sidebar */
-}
-
-.sidebar h2 {
-  margin-top: 0;
-  font-size: 20px;
-  color: #0b3d2e;
-  border-bottom: 2px solid #0b6b53;
-  padding-bottom: 10px;
-}
-
-.sidebar ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.sidebar ul li {
-  margin: 10px 0;
-  padding: 10px;
-  background: #fff;
-  border: 1px solid #e5e7eb;
-  border-radius: 8px;
-  box-shadow: 0 1px 4px rgba(0,0,0,0.08);
-}
-
-/* Nút toggle gắn vào rìa trái sidebar */
-.toggle-btn {
-  position: absolute;
-  top: 20px;
-  left: -200px;
-  background: #0b6b53;
-  color: #fff;
-  border: none;
-  padding: 12px 18px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 16px;
-  font-weight: bold;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-
 /* Overlay xanh lá mờ */
 header::before {
   content: "";
@@ -114,21 +53,7 @@ header .muted { color: #fff; }
     <h1>Dinh Độc Lập (Hội trường Thống Nhất) - Dự án của lớp 9A6</h1>
     <p class="muted">Di tích lịch sử – văn hóa tại trung tâm TP. Hồ Chí Minh</p>
   </header>
-<div class="sidebar" id="sidebar">
-  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Danh sách thành viên</button>
-  <h2>Danh sách thành viên</h2>
-  <ul>
-    <li>Hoàng Thị Thanh Hằng</li>
-    <li>Nguyễn Hoàng Minh Anh</li>
-    <li>Nông Huyền Phương Nghi</li>
-    <li>Đào Nguyễn Quỳnh Chi</li>
-    <li>Trần Phạm Thanh Tùng</li>
-    <li>Mai Lê Tuấn Tú</li>
-    <li>Đặng Thảo An</li>
-    <li>Hồ Trần Xuân Mai</li>
-    <li>Kim Khôi Nguyên</li>
-  </ul>
-</div>
+
   <section>
     <p>Dinh Độc Lập là nơi ghi dấu những khoảnh khắc đổi thay của lịch sử Việt Nam. Từ kiến trúc hiện đại mang tinh thần Á Đông đến các không gian chức năng như phòng khánh tiết và khu hầm, nơi đây đưa bạn chạm vào ký ức của một thời.</p>
     <p>Nơi này được công nhận là Di tích lịch sử văn hóa quốc gia tại Quyết định số 77A/VHQĐ ngày 25/6/1976 của Bộ trưởng Bộ Văn hóa (Bộ Văn hóa, Thể thao và Du lịch ngày nay). Cựu Thủ tướng Chính phủ nước Cộng hòa Xã hội Chủ nghĩa Việt Nam là ông Nguyễn Tấn Dũng đã ký Quyết định số 1272/QĐ-TTg xếp hạng Di tích lịch sử Dinh Độc Lập là một trong 10 di tích quốc gia đặc biệt đầu tiên của Việt Nam vào ngày 12 tháng 8 năm 2009.</p>
@@ -184,6 +109,87 @@ header .muted { color: #fff; }
 
 </body>
 
+<style>
+  /* Nút toggle */
+  .toggle-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c; /* đỏ nổi bật để dễ thấy */
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    z-index: 1100;
+  }
+
+  /* Sidebar */
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: -320px; /* mặc định đóng */
+    width: 320px;
+    height: 100%;
+    background: #f6f7f9; /* nền sáng giống theme */
+    color: #222;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.15);
+    transition: right 0.3s ease;
+    padding: 24px;
+    overflow-y: auto;
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    right: 0; /* hiện sidebar */
+  }
+
+  .sidebar h2 {
+    margin-top: 0;
+    font-size: 20px;
+    color: #0b3d2e; /* xanh lá đậm */
+    border-bottom: 2px solid #0b6b53;
+    padding-bottom: 10px;
+  }
+
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .sidebar ul li {
+    margin: 10px 0;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+  }
+</style>
+
+<!-- Nút toggle -->
+<button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Danh sách thành viên</button>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <h2>Danh sách thành viên</h2>
+  <ul>
+    <li>Hoàng Thị Thanh Hằng</li>
+    <li>Nguyễn Hoàng Minh Anh</li>
+    <li>Nông Huyền Phương Nghi</li>
+    <li>Đào Nguyễn Quỳnh Chi</li>
+    <li>Trần Phạm Thanh Tùng</li>
+    <li>Mai Lê Tuấn Tú</li>
+    <li>Đặng Thảo An</li>
+    <li>Hồ Trần Xuân Mai</li>
+    <li>Kim Khôi Nguyên</li>
+  </ul>
+</div>
+
 <script>
   function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
@@ -200,4 +206,3 @@ header .muted { color: #fff; }
 </script>
 
 </html>
-
