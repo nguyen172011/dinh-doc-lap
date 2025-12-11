@@ -30,10 +30,10 @@ header::before {
 header h1, header p {
   position: relative;
   z-index: 1;
-  background: radial-gradient(circle, #ffffff 60%, rgba(255, 215, 0, 0.6) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  text-shadow: 0 0 3px rgba(255, 0, 0, 0.6); /* outline đỏ mờ */
+  color: #fff; /* chữ chính màu trắng */
+  text-shadow: 
+    0 0 3px rgba(255, 0, 0, 0.6),   /* outline đỏ mờ */
+    0 0 6px rgba(255, 215, 0, 0.5); /* ánh vàng mờ phủ quanh chữ */
 }
 
 /* Đổi màu muted thành trắng để dễ đọc */
@@ -109,4 +109,5 @@ header h1, header p {
 </body>
 
 </html>
+
 
