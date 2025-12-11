@@ -10,6 +10,7 @@
     header {
   position: relative;
   background: url("https://upload.wikimedia.org/wikipedia/commons/d/d0/Dinh_%C4%90%E1%BB%99c_L%E1%BA%ADp_v%C3%A0o_n%C3%A0m_2024.jpg") no-repeat center center;
+  background-position: center;
   background-size: cover;
   color: #fff;
   text-align: center;
@@ -26,11 +27,12 @@ header::before {
   z-index: 0;
 }
 
-/* Chữ nổi lên trên overlay */
 header h1, header p {
   position: relative;
   z-index: 1;
-  color: #fff;
+  background: radial-gradient(circle, #ffffff 60%, rgba(255, 215, 0, 0.6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   text-shadow: 0 0 3px rgba(255, 0, 0, 0.6); /* outline đỏ mờ */
 }
 
@@ -107,3 +109,4 @@ header h1, header p {
 </body>
 
 </html>
+
