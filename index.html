@@ -22,9 +22,9 @@
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0; /* mặc định mở */
+  right: -400px; /* mặc định đóng, ẩn ra ngoài */
   width: 100%;
-  max-width: 400px; /* bạn có thể chỉnh rộng hơn nếu muốn */
+  max-width: 400px; /* chỉnh độ rộng sidebar */
   height: 100%;
   background: #f6f7f9;
   color: #222;
@@ -35,8 +35,8 @@
   z-index: 1000;
 }
 
-.sidebar.closed {
-  right: -400px; /* ẩn sidebar ra ngoài */
+.sidebar.open {
+  right: 0; /* hiện sidebar */
 }
 
 .sidebar h2 {
@@ -66,7 +66,7 @@
 .toggle-btn {
   position: absolute;
   top: 20px;
-  left: -180px; /* nằm ở rìa bên trái sidebar */
+  left: -200px; /* nằm ở rìa bên trái sidebar */
   background: #0b6b53;
   color: #fff;
   border: none;
@@ -168,7 +168,7 @@ header .muted { color: #fff; }
   </footer>
 
   <div class="sidebar" id="sidebar">
-  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Đóng</button>
+  <button class="toggle-btn" id="toggleBtn" onclick="toggleSidebar()">Danh sách thành viên</button>
   <h2>Danh sách thành viên</h2>
   <ul>
     <li>Hoàng Thị Thanh Hằng</li>
@@ -188,17 +188,18 @@ header .muted { color: #fff; }
   function toggleSidebar() {
     const sidebar = document.getElementById("sidebar");
     const btn = document.getElementById("toggleBtn");
-    sidebar.classList.toggle("closed");
+    sidebar.classList.toggle("open");
 
-    if (sidebar.classList.contains("closed")) {
-      btn.textContent = "Danh sách thành viên";
-    } else {
+    if (sidebar.classList.contains("open")) {
       btn.textContent = "Đóng";
+    } else {
+      btn.textContent = "Danh sách thành viên";
     }
   }
 </script>
 
 </html>
+
 
 
 
